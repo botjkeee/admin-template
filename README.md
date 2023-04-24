@@ -1,42 +1,48 @@
 Нужно в корне проекта создать файлы:
 
 -  .env
-   BASE_URL=http://localhost:5173
-   VITE_GRAPHQL_URL=http://111.111.111.111:8080/v1/graphql
-   VITE_GRAPHQL_TOKEN=11111
+```
+BASE_URL=http://localhost:5173
+VITE_GRAPHQL_URL=http://111.111.111.111:8080/v1/graphql
+VITE_GRAPHQL_TOKEN=11111
+```
 
--  .graphqlrc
-    schema:
-      -  http://111.111.111.111:8080/v1/graphql:
-      headers:
-      hasura_access: '11111'
+-  .graphqlrc:
+ ```
+schema:
+    -  http://111.111.111.111:8080/v1/graphql:
+        headers:
+          hasura_access: '11111'
+```
 
 -  codegen.ts
-   import type { CodegenConfig } from '@graphql-codegen/cli'
+```
+import type { CodegenConfig } from '@graphql-codegen/cli'
 
-   const config: CodegenConfig = {
+const config: CodegenConfig = {
    overwrite: true,
    schema: [
-   {
-   'http://111.111.111.111:8080/v1/graphql': {
-   headers: { hasura_access: '11111' }
-   }
-   }
+      {
+         'http://111.111.111.111:8080/v1/graphql': {
+            headers: { hasura_access: '111' }
+         }
+      }
    ],
-   documents: 'src/\*_/_.vue',
+   documents: 'src/**/*.vue',
    ignoreNoDocuments: true,
    generates: {
-   'src/gql/': {
-   preset: 'client',
-   plugins: [],
-   config: {
-   useTypeImports: true
+      'src/gql/': {
+         preset: 'client',
+         plugins: [],
+         config: {
+            useTypeImports: true
+         }
+      }
    }
-   }
-   }
-   }
+}
 
-   export default config
+export default config
+```
 
 Проверить новые зависимости и поставить их при необходимости
 
