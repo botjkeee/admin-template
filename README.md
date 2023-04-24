@@ -7,7 +7,7 @@ VITE_GRAPHQL_URL=http://111.111.111.111:8080/v1/graphql
 VITE_GRAPHQL_TOKEN=11111
 ```
 
--  .graphqlrc:
+-  .graphqlrc
  ```
 schema:
     -  http://111.111.111.111:8080/v1/graphql:
