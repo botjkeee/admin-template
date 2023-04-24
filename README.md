@@ -6,9 +6,8 @@
    VITE_GRAPHQL_TOKEN=11111
 
 -  .graphqlrc
-   schema:
-
-   -  http://111.111.111.111:8080/v1/graphql:
+    schema:
+      -  http://111.111.111.111:8080/v1/graphql:
       headers:
       hasura_access: '11111'
 
